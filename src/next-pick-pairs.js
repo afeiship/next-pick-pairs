@@ -9,7 +9,7 @@
         key: element,
         value: nx.path( inObject, element )
       };
-    }, this);
+    });
   };
 
 
