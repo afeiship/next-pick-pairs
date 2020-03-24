@@ -3,9 +3,22 @@
   var nx = global.nx || require('@feizheng/next-js-core2');
 
   nx.pickPairs = function(inObject, inPaths, inDefaults) {
-    return inPaths.map(function(path) {
-      var defaultValue =
-        typeof inDefaults === 'object' ? nx.get(inDefaults, path) : null;
+    var paths = inPaths || Object.keys(inObject);
+    var defType = typeof inDefaults;
+    return paths.map(function(path, index) {
+      var defaultValue = null;
+
+      switch (defType) {
+        case 'object':
+          defaultValue = nx.get(inDefaults, path);
+          break;
+        case 'function':
+          defaultValue = inDefaults(index, path, inObject);
+          break;
+        default:
+          defaultValue = null;
+          break;
+      }
 
       return {
         key: path,
