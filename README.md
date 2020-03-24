@@ -1,10 +1,16 @@
 # next-pick-pairs
 > Pick key/value pairs from object.
 
+## installation
+```bash
+npm install -S @feizheng/next-pick-pairs
+```
 
-## usage:
+## usage
 ```js
-var obj = {
+import '@feizheng/next-pick-pairs';
+
+const obj = {
   "nickname": null,
   "uid": "UR1785049326",
   "job": null,
@@ -25,7 +31,8 @@ var obj = {
   "email": 'test@email.com',
   "phone": "15502115100"
 };
-var res = nx.pickPairs(obj,['nickname','is_staff','email']);
+
+const res = nx.pickPairs(obj,['nickname','is_staff','email']);
 
 //result:
 [ { key: 'nickname', value: null },

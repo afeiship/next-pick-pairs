@@ -1,20 +1,20 @@
-(function () {
+(function() {
+  var global = global || this || window || Function('return this')();
+  var nx = global.nx || require('@feizheng/next-js-core2');
 
-  var global = global || this || self || window;
-  var nx = global.nx || require('next-js-core2');
+  nx.pickPairs = function(inObject, inPaths, inDefaults) {
+    return inPaths.map(function(path) {
+      var defaultValue =
+        typeof inDefaults === 'object' ? nx.get(inDefaults, path) : null;
 
-  nx.pickPairs = function (inObject, inPaths) {
-    return inPaths.map(function(element) {
       return {
-        key: element,
-        value: nx.path( inObject, element )
+        key: path,
+        value: nx.get(inObject, path, defaultValue)
       };
     });
   };
 
-
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = nx.pickPairs;
   }
-
-}());
+})();
