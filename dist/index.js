@@ -3,7 +3,7 @@
  * description: Pick key/value pairs from object.
  * homepage: https://github.com/afeiship/next-pick-pairs
  * version: 1.0.0
- * date: 2020-11-22 15:25:59
+ * date: 2020-11-22 15:26:46
  * license: MIT
  */
 
