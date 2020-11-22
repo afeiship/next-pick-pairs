@@ -1,20 +1,11 @@
-/*!
- * name: @feizheng/next-pick-pairs
- * description: Pick key/value pairs from object.
- * url: https://github.com/afeiship/next-pick-pairs
- * version: 1.1.0
- * date: 2020-03-24 13:08:35
- * license: MIT
- */
-
-(function() {
+(function () {
   var global = global || this || window || Function('return this')();
-  var nx = global.nx || require('@feizheng/next-js-core2');
+  var nx = global.nx || require('@jswork/next');
 
-  nx.pickPairs = function(inObject, inPaths, inDefaults) {
+  nx.pickPairs = function (inObject, inPaths, inDefaults) {
     var paths = inPaths || Object.keys(inObject);
     var defType = typeof inDefaults;
-    return paths.map(function(path, index) {
+    return paths.map(function (path, index) {
       var defaultValue = null;
 
       switch (defType) {
@@ -40,5 +31,3 @@
     module.exports = nx.pickPairs;
   }
 })();
-
-//# sourceMappingURL=next-pick-pairs.js.map

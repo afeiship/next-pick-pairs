@@ -1,11 +1,20 @@
-(function() {
-  var global = global || this || window || Function('return this')();
-  var nx = global.nx || require('@feizheng/next-js-core2');
+/*!
+ * name: @jswork/next-pick-pairs
+ * description: Pick key/value pairs from object.
+ * homepage: https://github.com/afeiship/next-pick-pairs
+ * version: 1.0.0
+ * date: 2020-11-22 15:25:59
+ * license: MIT
+ */
 
-  nx.pickPairs = function(inObject, inPaths, inDefaults) {
+(function () {
+  var global = global || this || window || Function('return this')();
+  var nx = global.nx || require('@jswork/next');
+
+  nx.pickPairs = function (inObject, inPaths, inDefaults) {
     var paths = inPaths || Object.keys(inObject);
     var defType = typeof inDefaults;
-    return paths.map(function(path, index) {
+    return paths.map(function (path, index) {
       var defaultValue = null;
 
       switch (defType) {
